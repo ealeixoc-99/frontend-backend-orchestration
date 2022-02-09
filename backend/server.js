@@ -4,7 +4,10 @@ const cors = require('cors');
 
 app = express();
 
-app.use(cors());
+app.use(cors({
+    methods:['GET','POST'],
+    credentials: true // enable set cookie
+}));
 
 app.use(
     session({

@@ -4,12 +4,15 @@ import './App.css';
 
 function App() {
   const [count, setCount] = React.useState(null);
+  const [loading, setLoading] = React.useState(false);
   
   React.useEffect(
     () => {
+      setLoading(true)
       fetch('/express_backend')
         .then((res) => res.json())
-        .then((resJson) => setCount(resJson.express));
+        .then((resJson) => {setCount(resJson.express)
+        setLoading(false)});
     }, []
   );
 
@@ -17,7 +20,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Number of reload : {count}</h1>
+        <h1 className="App-title">{loading === true ? (<p>Loading</p>) : ('Number of reload : '+count)}</h1>
       </header>
     </div>
   );
