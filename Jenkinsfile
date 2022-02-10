@@ -21,6 +21,7 @@ pipeline {
                 bat 'git pull'
                 bat 'git checkout release'
                 bat 'git merge dev'
+                bat 'git push'
             }
         }
     }
