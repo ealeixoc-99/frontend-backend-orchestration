@@ -21,7 +21,9 @@ pipeline {
                 bat 'git pull'
                 bat 'git checkout release'
                 bat 'git merge dev'
-                bat 'git push'
+                withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    bat "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git/"
+                }
             }
         }
     }
