@@ -20,5 +20,5 @@ test("Test counter two iterations one count", async() => {
   var count_one = (await res).data.express;
   var count_two = (await res_2).data.express;
   
-  expect([count_one,count_two]).toEqual([1,2]);
+  expect([count_one,count_two]).toEqual([1,1]);
 })
