@@ -1,24 +1,38 @@
-import 'react-dom/test-utils';
+import { render, screen, queryByAttribute  } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import App from './App';
-import axios from "axios";
 
-test('Test communication between Front and Back', async () => {
-  const res = axios.get("http://localhost:5000/express_backend")
-  expect((await res).status).toBe(200);
-})
+test('test communication with count', () => {
+  /const page = render(<App />);
 
-test("Test counter one interation", async() => {
-  const res = axios.get("http://localhost:5000/express_backend")
-  var count_one = (await res).data.express;
-  expect(count_one).toEqual(1);
-})
+  //const checkContent = screen.getByTestId("test-span");
+  const checkContent = screen.getByTestId("test-span");
+  var test = checkContent.outerHTML;
+  console.log(test);
 
-test("Test counter two iterations one count", async() => {
-  const res = axios.get('http://localhost:5000/express_backend');
-  const res_2 = axios.get('http://localhost:5000/express_backend');
+  console.log(page.getByTestId('test-span').textContent);
 
-  var count_one = (await res).data.express;
-  var count_two = (await res_2).data.express;
-  
-  expect([count_one,count_two]).toEqual([1,2]);
+  setTimeout(async () => {
+    const items = await screen.getByTestId("test-span");
+    expect(items).toHaveLength(2);
+  }, 8000)/
+  //await wait(() => expect(screen.getByText("test 1")).toBeInTheDocument());
+  // console.log(screen.getByRole('banner'));
+  // console.log(firstState);
+  //expect(Number(firstState) < Number(secondState));
+});
+
+it('Wait state change', async () => {
+  let component;
+  await act(async () => {
+    component = render(<App />);
+  })
+  render(<App />);
+  render(<App />);
+  render(<App />);
+  render(<App />);
+  render(<App />);
+  render(<App />);
+  const element = component.getByTestId("test-span");
+  console.log(element);
 })
