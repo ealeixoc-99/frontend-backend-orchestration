@@ -17,7 +17,7 @@ pipeline {
                 bat 'git config --global user.email "florian.marques@efrei.net"'
                 bat 'git config --global user.name "MarquesFlorian"'
                 bat 'git checkout .'
-                bat 'git branch -d release'
+                bat 'git branch -D release'
                 bat 'git pull'
                 bat 'git checkout release'
                 bat 'git add .'
