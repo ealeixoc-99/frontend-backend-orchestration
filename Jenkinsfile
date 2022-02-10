@@ -10,7 +10,6 @@ pipeline {
         stage('Tests') {
             steps {
                 bat 'cd frontend && npm install && npm test -- --bail --ci'
-                bat 'echo test'
             }
         }
     }
