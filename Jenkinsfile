@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deployment on Release Branch') {
             steps {
-                bat 'git checkout release && git merge origin/dev --ff-only - && git push'
+                bat 'git checkout release && git merge --ff-only origin/dev && git push'
             }
         }
     }
