@@ -19,11 +19,8 @@ pipeline {
                 bat 'git checkout dev'
                 bat 'git pull'
                 bat 'git checkout release'
-                bat 'git pull'
-                bat 'git add .'
-                bat 'git commit -m "Merge"'
+                bat 'git merge dev'
                 bat 'git push'
-                bat 'git pull'
             }
         }
     }
