@@ -16,6 +16,9 @@ pipeline {
             steps {
                 bat 'git config --global user.email "florian.marques@efrei.net"'
                 bat 'git config --global user.name "MarquesFlorian"'
+                bat 'git checkout .'
+                bat 'git branch -d release'
+                bat 'git pull'
                 bat 'git checkout release'
                 bat 'git add .'
                 bat 'git commit -m "Merge"'
