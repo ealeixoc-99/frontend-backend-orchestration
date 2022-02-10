@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deployment on Release Branch') {
             steps {
-                bat 'git checkout release && git pull && git add . && git commit -m "Merge" && git push'
+                bat 'git config --global user.email "florian.marques@efrei.net" && git config --global user.name "MarquesFlorian" && git checkout release && git pull && git add . && git commit -m "Merge" && git push'
             }
         }
     }
