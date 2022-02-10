@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deployment on Release Branch') {
             steps {
-                bat 'git checkout -b release-%date% && git branch --set-upstream-to=origin/dev && git push'
+                bat 'git checkout -b release-%date% && git branch --set-upstream-to=origin/dev && git push origin HEAD'
             }
         }
     }
