@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Tests') {
             steps {
-                bat 'cd frontend && npm test'
+                bat 'cd frontend && npm install && npm test'
             }
         }
     }
