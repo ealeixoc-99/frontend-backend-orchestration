@@ -22,7 +22,7 @@ pipeline {
                 bat 'git checkout release'
                 bat 'git merge dev'
                 withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    bat "git push http://$GIT_USERNAME:$GIT_PASSWORD@ealeixoc-99/frontend-backend-orchestration.git/"
+                    bat "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git"
                 }
             }
         }
